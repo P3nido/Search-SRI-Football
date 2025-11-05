@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resultados da Busca</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen py-12 flex justify-center">
+  <div class="w-full max-w-4xl px-4">
+    <div class="bg-white rounded-2xl shadow p-8">
+      <h1 class="text-center text-2xl font-semibold text-gray-800 mb-6">
+        Resultados para: <span class="text-blue-600">{{ consulta }}</span>
+      </h1>
+
+      {% if resultados %}
+        <ul class="space-y-4">
+          {% for doc in resultados %}
+            <li class="p-4 border border-gray-100 rounded-xl hover:shadow-md transition flex justify-between items-start">
+              <div>
+                <a href="{{ url_for('detalhes', doc_id=doc['DocId']) }}" class="text-lg font-semibold text-blue-700 hover:underline">
+                  {{ doc['Título'] }}
+                </a>
+                <p class="text-sm text-gray-600 mt-1">{{ doc['Autor'] }}</p>
+                <p class="text-gray-700 mt-2 text-sm">{{ doc['Resumo'] }}</p>
+              </div>
+              <div class="text-right ml-4">
+                {% if doc.get('score') is defined %}
+                  <div class="text-sm text-gray-500">Score</div>
+                  <div class="text-lg font-medium text-gray-800">{{ "%.4f"|format(doc['score']) }}</div>
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="text-center text-gray-600 mt-6">Nenhum documento encontrado para sua consulta.</p>
+      {% endif %}
+
+      <div class="text-center mt-8">
+        <a href="{{ url_for('home') }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">Nova Busca</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

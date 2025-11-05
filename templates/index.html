@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistema de Recuperação de Informação</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+  <div class="bg-white shadow-lg rounded-2xl p-10 w-full max-w-2xl text-center">
+    <h1 class="text-2xl font-semibold text-gray-800 mb-6">
+      Sistema de Recuperação de Informação
+    </h1>
+
+    <form action="{{ url_for('resultados') }}" method="post" class="space-y-6">
+      <input name="consulta" id="consulta" required
+             placeholder="Digite sua consulta (ex: futebol AND torcida ou clube torcida)"
+             class="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+
+      <div class="flex justify-center gap-4">
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="radio" name="modelo" value="booleano" checked class="hidden peer" />
+          <span class="px-4 py-2 rounded-lg border border-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">Booleano</span>
+        </label>
+
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="radio" name="modelo" value="vetorial" class="hidden peer" />
+          <span class="px-4 py-2 rounded-lg border border-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">Espaço Vetorial</span>
+        </label>
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition">
+        Buscar
+      </button>
+    </form>
+  </div>
+</body>
+</html>
