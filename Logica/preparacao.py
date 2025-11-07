@@ -3,7 +3,6 @@ import re
 import sys
 from pathlib import Path
 
-
 # Busca os arquivos do backend
 script_dir = Path(__file__).parent.resolve()
 if len(sys.argv) > 1:

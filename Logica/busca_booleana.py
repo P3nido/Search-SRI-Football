@@ -1,11 +1,3 @@
-"""
-Gptão falou entao ta falado:
-
-Uso com front-end:
- - substitua/atribua a string `query_from_front` com a consulta vinda do front.
- - chame a função `busca_booleana(query_from_front, path_para_json)` e envie o resultado ao front.
-"""
-
 import json
 import re
 import os
@@ -154,18 +146,3 @@ def busca_booleana(query: str, tokenized_docs: Union[str, Dict[int, Set[str]]]) 
         results[doc_id] = _eval_postfix_for_doc(postfix, tokset)
 
     return results
-
-# Aqui é somente para teste, como vai ser implementado a interface, não vai precisar de um main rodando isso
-if __name__ == '__main__':
-
-    query_from_front = 'maria OR (estádio AND NOT clube)' ''' se quiser testar a busca por enquanto muda aqui nessa variável'''
-    path = '..\\JSONs\\dados_tokenizados.json'
-
-    try:
-        results = busca_booleana(query_from_front, path)
-        matched = [doc for doc, ok in results.items() if ok]
-        print(f"Query: {query_from_front}")
-        print(f"Total documentos: {len(results)}")
-        print(f"Documentos que satisfazem a query ({len(matched)}): {matched}")
-    except Exception as e:
-        print('Erro ao executar teste de busca booleana:', e)

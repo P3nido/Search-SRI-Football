@@ -111,18 +111,3 @@ def busca_espaco_vetorial(query: str, termos_path: str, metadados_path: Optional
         results = results[:top_k]
 
     return results
-
-#Aqui é somente para teste, quando finalizar o front pode remover
-if __name__ == '__main__':
-    query_from_front = 'futebol clube torcida' ''' muda a sua pesquisa aqui'''
-    termos_path = '..\\JSONs\\termos_significativos.json'
-    metadados_path = '..\\JSONs\\metadados.json'
-
-    try:
-        ranked = busca_espaco_vetorial(query_from_front, termos_path, metadados_path=metadados_path, top_k=10)
-        print(f"Query: {query_from_front}")
-        print("Top resultados:")
-        for r in ranked:
-            print(f"Doc {r['DocId']:2d} | score={r['score']:.4f} | Título={r.get('Título')}")
-    except Exception as e:
-        print('Erro ao executar busca espaço vetorial:', e)

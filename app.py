@@ -113,8 +113,14 @@ def make_result_entry(doc_id: int, score: Optional[float] = None) -> Dict:
         "Autor": author,
         "Resumo": snippet
     }
+    # Sempre inclua a chave 'score' como float (0.0 quando ausente) e uma flag
+    # 'has_score' para distinguir resultados que realmente vieram com score.
     if score is not None:
         entry["score"] = float(score)
+        entry["has_score"] = True
+    else:
+        entry["score"] = 0.0
+        entry["has_score"] = False
     return entry
 
 

@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\User\Desktop\AMANDA\ProjetoSRI\Search-SRI-Football\venv
+set VIRTUAL_ENV=C:\Workspace\Vscode\Search-SRI-Football\Search-SRI-Football\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

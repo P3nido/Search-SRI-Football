@@ -24,7 +24,7 @@
                 <p class="text-gray-700 mt-2 text-sm">{{ doc['Resumo'] }}</p>
               </div>
               <div class="text-right ml-4">
-                {% if doc.get('score') is defined %}
+                {% if doc.get('has_score') %}
                   <div class="text-sm text-gray-500">Score</div>
                   <div class="text-lg font-medium text-gray-800">{{ "%.4f"|format(doc['score']) }}</div>
                 {% endif %}
