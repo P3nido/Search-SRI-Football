@@ -20,7 +20,6 @@ O objetivo principal é aplicar conceitos de **Processamento de Linguagem Natura
 ## 📂 Estrutura do Repositório
 - `main.py` / `Search.py`: Script principal que executa a lógica de busca.
 - `Bases/`: Pasta contendo os arquivos CSV com os dados dos jogadores/partidas.
-- `notebooks/` (se houver): Testes e análises exploratórias.
 
 ## ⚙️ Como Executar
 1. Clone o repositório:
